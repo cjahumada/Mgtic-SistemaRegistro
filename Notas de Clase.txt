@@ -1,0 +1,16 @@
+05 Abril 2024
+
+View > 
+z wrap
+lorem > enter
+
+Samantha Jiménez 9:24 PM
+Git add .
+aregar todos los archivos
+
+Git commit -m “el mensaje”
+
+
+Git push
+
+
