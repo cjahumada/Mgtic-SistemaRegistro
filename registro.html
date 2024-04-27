@@ -25,51 +25,59 @@
 
         <h3>Registra un alumno nuevo</h3>
         <div>
-            <label>Nombre:</label>
-            <input type="text">
-        </div>
-        <div>
-            <label>Edad:</label>
-            <input type="number">
-        </div>
-        <div>
-            <label for="genero-select">Genero:</label>
-            <select name="genero " id="genero-select">
-                <option value="">Selecciona Genero</option>
-                <option value="Masculino">Masculino</option>
-                <option value="Femenino">Femenino</option>
-            </select>
-        </div>
-        <div>
-            <label for="facultad-select">Facultad:</label>
-            <select name="facultad " id="facultad-select">
-                <option value="">Selecciona la Opción</option>
-                <option value="Ciencias Administrativas">Ciencias Administrativas</option>
-                <option value="Ingenieria">Ingenieria</option>
-                <option value="Arquitectura">Arquitectura</option>
-            </select>
-        </div>
-        <div>
-            <label>email:</label>
-            <input type="text">
-        </div>
-        <div>
-            <label>Password:</label>
-            <input type="password">
-        </div>
-        <div>
-            <label>Materia 1:</label>
-            <input type="number">
-        </div>
-        <div>
-            <label>Materia 2:</label>
-            <input type="number">
-        </div>
-        <div>
-            <label>Materia 3:</label>
-            <input type="number">
+            <div>
+                <label>Nombre:</label>
+                <input type="text" id="txtNombre">
+            </div>
+            <div>
+                <label>Edad:</label>
+                <input type="number" id="txtEdad">
+            </div>
+            <div>
+                <label for="genero-select">Genero:</label>
+                <select name="genero " id="genero-select">
+                    <option value="">Selecciona Genero</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                </select>
+            </div>
+            <div>
+                <label for="facultad-select">Facultad:</label>
+                <select name="facultad " id="facultad-select">
+                    <option value="">Selecciona la Opción</option>
+                    <option value="Ciencias Administrativas">Ciencias Administrativas</option>
+                    <option value="Ingenieria">Ingenieria</option>
+                    <option value="Arquitectura">Arquitectura</option>
+                </select>
+            </div>
+            <div>
+                <label>email:</label>
+                <input type="text" id="txtEmail">
+            </div>
+            <div>
+                <label>Password:</label>
+                <input type="password" id="txtPassword">
+            </div>
+            <div>
+                <label>Materia 1:</label>
+                <input type="number" id="txtMateria1">
+            </div>
+            <div>
+                <label>Materia 2:</label>
+                <input type="number" id="txtMateria2">
+            </div>
+            <div>
+                <label>Materia 3:</label>
+                <input type="number" id="txtMateria3">
+            </div>
+
+            <button onclick="registrar()">Registrar</button>
         </div>
 
+        <!--nombre,edad,genero,email,facultad,password,materia1, materia2, materia 3-->
+        <!--facultad sea un select de 3 opciones -->
         </main>
+
+        <script src="./scripts/register.js"></script>
 </body>
 </html>
