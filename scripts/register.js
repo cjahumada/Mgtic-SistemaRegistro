@@ -16,10 +16,10 @@ function Student(nombre,edad,genero,facultad,email,password,materia1,materia2,ma
 //validacion
 function isValid(unAlumno){
     let validacion = true;
-    if(unAlumno.name==""){
+    if(unAlumno.nombre==""){
         validacion = false;
     }
-    if(unAlumno.age==""){
+    if(unAlumno.edad==""){
         validacion = false;
     }
     if(unAlumno.email==""){
@@ -53,7 +53,9 @@ function registrar(){
     let nuevoAlumno = new Student(inputNombre,inputEdad,inputGenero,inputFacultad,inputEmail,inputPasword,inputMateria1,inputMateria2,inputMateria3);
     if(isValid(nuevoAlumno)){
         students.push(nuevoAlumno);
-        console.log(students);
+//        console.log(students);
+//        displayCards();
+        displayTable();
     }else{
         alert("Por favor completa los campos");
     }
@@ -62,6 +64,8 @@ function registrar(){
 function init(){
     let student1 = new Student("Samuel",99,"MASULINO","CIENCIAS ADMINISTRATIVAS","samuel@uabc.edu.mx","S4mu3l",10,10,8);
    students.push(student1);
+//   displayCards();
+   displayTable();
 }
 
 window.onload=init;// espera a rendirizar el HTML
