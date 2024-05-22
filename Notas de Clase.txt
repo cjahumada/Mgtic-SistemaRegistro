@@ -14,3 +14,60 @@ Git commit -m “el mensaje”
 Git push
 
 
+***********************
+
+function insertToDataBase(){
+$.ajax({
+	url:"./app/register.php",
+	method:"POST",
+	data{
+		name:newStudent.nombre,
+		name:newSudent.edad
+	},
+	dataTye:"json",
+	success:fuction(response){
+		console.log(response);
+	},
+	error:fuction(xhr,status,error){
+		console.log("Error de conexion");
+		console.error(error);
+	}
+});
+}
+
+
+<?php
+//CORS
+// Permitir solicitudes desde cualquier origen
+header("Access-Control-Allow-Origin: *");
+// Permitir métodos HTTP GET, POST, y OPTIONS
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+// Permitir los encabezados Content-Type y Authorization en las solicitudes CORS
+header('Content-Type: application/json');
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
+include("connection.php");
+
+if($_SERVER[REQUEST_METHOD]) == "POST"){
+	if(isset($_POST["nombre"],$_POST["dad"])){
+		$nombre = $POST[nombre];
+		$edad = $POST[edad];
+
+		$stmt_insert_usuarios =$conn->prepare (INSERT INTO estudiantes (nobre,edad VALUES (?,?)");
+		$stm_insert_usuarios ->bind_param("si",$nombe,$edad);
+		$stm_insert_usuarios ->execute();
+
+		echo json_encode(array("success" =>true));
+		$stm_insert_usuarios ->close();
+}
+
+	$conn->close();
+	exit();
+
+}
+?>
+
+***************************************
+investigar nuevas funcionalidades
+
+

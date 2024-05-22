@@ -52,20 +52,57 @@ function registrar(){
     let inputMateria3 = document.getElementById("txtMateria3").value;
     let nuevoAlumno = new Student(inputNombre,inputEdad,inputGenero,inputFacultad,inputEmail,inputPasword,inputMateria1,inputMateria2,inputMateria3);
     if(isValid(nuevoAlumno)){
-        students.push(nuevoAlumno);
+        //students.push(nuevoAlumno);
 //        console.log(students);
 //        displayCards();
-        displayTable();
+        
+        insertToDatabase(nuevoAlumno);
+ 
+        //displayTable();
     }else{
         alert("Por favor completa los campos");
     }
 }
 
-function init(){
-    let student1 = new Student("Samuel",99,"MASULINO","CIENCIAS ADMINISTRATIVAS","samuel@uabc.edu.mx","S4mu3l",10,10,8);
-   students.push(student1);
-//   displayCards();
-   displayTable();
+function insertToDatabase(newStudent){
+    $.ajax({
+        url:"./app/register.php",
+        method:"POST",
+        data:{
+            nombre: newStudent.nombre,
+            edad:   newStudent.edad,
+            genero: newStudent.genero,
+            facultad: newStudent.facultad,
+            email: newStudent.email,
+            password: newStudent.password,
+            materia1: newStudent.materia1,
+            materia2: newStudent.materia2,
+            materia3: newStudent.materia3
+        },
+        dataType:"json",
+        success:function(response){
+            if(response.success){
+               console.log(response); 
+               setTimeout(function(){
+               location.reload();
+            },1000);
+            }else{
+                console.log("Error, por favor intente de nuevo");
+            }
+          },
+        error:function(xhr,status,error){
+            console.log("Error de conexion");
+            console.error(error);
+        }
+    });
 }
 
-window.onload=init;// espera a rendirizar el HTML
+
+//function init(){
+//    let student1 = new Student("Samuel",99,"MASULINO","CIENCIAS ADMINISTRATIVAS","samuel@uabc.edu.mx","S4mu3l",10,10,8);
+//   students.push(student1);
+//   displayCards();
+//   displayTable();
+//}
+
+//window.onload=init;// espera a rendirizar el HTML
