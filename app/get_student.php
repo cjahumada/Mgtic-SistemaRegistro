@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
     $result=$stmt->get_result();
 
     if($result->num_rows >0){
-        $data[] = array();
+        $data= array();
         while($row = $result->fetch_assoc()){
             $data[] = array(
                 "id"=>$row["id"],
@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
                 "materia3"=>$row["materia3"]
             );
         }
-        echo json_encode(array("success"=>true,"data"=>$data));
+        echo json_encode(array("success"=>true, "data" => $data));
     }else{
         echo json_encode(array("success"=>false,"error"=>"No se encontraron los datos"));
     }

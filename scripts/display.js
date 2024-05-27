@@ -21,28 +21,32 @@ function displayTable(student){
         card=`
         <div class='student2'>
             <table>
-                <tr>
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Edad</th>
-                    <th>Genero</th>
-                   <th>Facultad</th>
-                    <th>email</th>
-                    <th>Calif. Materia 1</th>
-                    <th>Calif. Materia 2</th>
-                    <th>Calif. Materia 3</th>
-                </tr>
-                <tr>
-                    <td> ${student.id} </td>
-                    <td> ${student.nombre} </td>
-                    <td> ${student.edad} </td>
-                    <td> ${student.genero} </td>
-                    <td> ${student.facultad} </td>
-                    <td> ${student.email} </td>
-                    <td> ${student.materia1} </td>
-                    <td> ${student.materia2} </td>
-                    <td> ${student.materia3} </td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Genero</th>
+                        <th>Facultad</th>
+                        <th>email</th>
+                        <th>Calif. Materia 1</th>
+                        <th>Calif. Materia 2</th>
+                        <th>Calif. Materia 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> ${student.id} </td>
+                        <td> ${student.nombre} </td>
+                        <td> ${student.edad} </td>
+                        <td> ${student.genero} </td>
+                        <td> ${student.facultad} </td>
+                        <td> ${student.email} </td>
+                        <td> ${student.materia1} </td>
+                        <td> ${student.materia2} </td>
+                        <td> ${student.materia3} </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
         `;
@@ -59,7 +63,7 @@ function searchToDataBase(){
             console.log(response);
             if (response.success){
                 console.log(response.data);
-                response.data.forEach(displayCards);
+                response.data.forEach(displayTable);
             }else{
                 console.log("Error en la respuesta del servidor");
             }
