@@ -6,10 +6,11 @@
     margin:20px 0;
 }
 .student{
-    border:1px solid #ffcc00;
+    border:1px solid #0006;
 /*    border-radius: 10px;
     padding: 10px;*/
     border-collapse: collapse;
+    border-radius: 6px;
 }
 .student2{
     border:1px solid #00aaff;
