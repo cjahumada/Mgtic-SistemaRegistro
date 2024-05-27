@@ -63,7 +63,7 @@ function searchToDataBase(){
             console.log(response);
             if (response.success){
                 console.log(response.data);
-                response.data.forEach(displayTable);
+                response.data.forEach(displayCards);
             }else{
                 console.log("Error en la respuesta del servidor");
             }
