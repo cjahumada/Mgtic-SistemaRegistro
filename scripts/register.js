@@ -64,6 +64,19 @@ function registrar(){
     }
 }
 
+// Limpiar campos
+function clearFields() {
+    document.getElementById("txtNombre").value = "";
+    document.getElementById("txtEdad").value = "";
+    document.getElementById("genero-select").value = "";
+    document.getElementById("facultad-select").value = "";
+    document.getElementById("txtEmail").value = "";
+    document.getElementById("txtPassword").value = "";
+    document.getElementById("txtMateria1").value = "";
+    document.getElementById("txtMateria2").value = "";
+    document.getElementById("txtMateria3").value = "";
+}
+
 function insertToDatabase(newStudent){
     $.ajax({
         url:"./app/register.php",
@@ -82,7 +95,8 @@ function insertToDatabase(newStudent){
         dataType:"json",
         success:function(response){
             if(response.success){
-               console.log(response); 
+               console.log(response);
+                 clearFields();
                setTimeout(function(){
                location.reload();
             },1000);
