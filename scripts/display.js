@@ -1,8 +1,8 @@
 function displayCards(student){
     let card="";
         card=`
-        <div id="${student.id}" class='student'>
-            <h4> Nombre: ${student.nombre}  <h4/>
+        <div id="student-${student.id}" class='student'>
+            <h4> Nombre: ${student.nombre}  </h4>
             <p> Edad: ${student.edad} <br> </p>
             <p> Genero: ${student.genero} <br> </p>
             <p> Facultad: ${student.facultad} <br> </p>
@@ -10,7 +10,7 @@ function displayCards(student){
             <p> Calif. Materia 1: ${student.materia1} <br> </p>
             <p> Calif. Materia 2: ${student.materia2} <br> </p>
             <p> Calif. Materia 3: ${student.materia3} </p>
-            <button>Eliminar<buton>
+            <button onclick="borrarStudent(${student.id})">Eliminar</button>
         </div>
         `;
       document.getElementById("studentList").innerHTML+=card;
@@ -52,6 +52,31 @@ function displayTable(student){
         `;
     //}
      document.getElementById("studentList").innerHTML+=card;
+}
+
+function borrarStudent(studentId) {
+    $.ajax({
+        url: "./app/borrar.php",
+        type: "POST",
+        data: { id: studentId },
+        dataType: "json",
+        success: function(response) {
+            if (response.success) {
+                const studentElement = document.getElementById(`student-${studentId}`);
+                if (studentElement) {
+                    studentElement.remove();
+                } else {
+                    console.error(`Elemento ID student-${studentId}`);
+                }
+            } else {
+                console.log("Error en la respuesta del servidor");
+            }
+        },
+        error: function(xhr, status, error) {
+            console.log("Error de conexión");
+            console.error(error);
+        }
+    });
 }
 
 function searchToDataBase(){

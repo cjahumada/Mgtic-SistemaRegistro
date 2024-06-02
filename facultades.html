@@ -27,11 +27,11 @@
         <div class="formulario">
             <div class="pide-datos">
                 <label>Facultad</label>
-                <input type="text" id="txtFacultad">
+                <input type="text" id="txtFacultad" oninput="convertToUpperCase(this)">
             </div>
             <div class="pide-datos">
                 <label>Campus</label>
-                <input type="text" id="txtCampus">
+                <input type="text" id="txtCampus" oninput="convertToUpperCase(this)">
             </div>
             <div>
                 <button onclick="registrar()">Registrar</button>
@@ -41,5 +41,10 @@
 
     <script src="./scripts/facultades.js"></script>
     <script src="./scripts/storeManager.js"></script>
+    <script>
+        function convertToUpperCase(input) {
+            input.value = input.value.toUpperCase();
+        }
+    </script>
 </body>
 </html>

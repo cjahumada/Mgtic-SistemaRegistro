@@ -28,9 +28,9 @@
         <div class="formulario">
             <div class="pide-datos">
                 <label>Nombre:</label>
-                    <input type="text" id="txtNombre">
+                    <input type="text" id="txtNombre" oninput="convertToUpperCase(this)">
             </div>
-            <div class="pide-datos"
+            <div class="pide-datos">
                 <label>Edad:</label>
                 <input type="number" id="txtEdad">
             </div>
@@ -88,5 +88,10 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="./scripts/register.js"></script>
     <script src="./scripts/display.js"></script>
+    <script>
+        function convertToUpperCase(input) {
+            input.value = input.value.toUpperCase();
+        }
+    </script>
 </body>
 </html> 

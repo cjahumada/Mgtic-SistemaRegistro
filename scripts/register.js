@@ -64,7 +64,6 @@ function registrar(){
     }
 }
 
-// Limpiar campos
 function clearFields() {
     document.getElementById("txtNombre").value = "";
     document.getElementById("txtEdad").value = "";
